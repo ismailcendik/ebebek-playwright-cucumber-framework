@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  ebebek-test-automation:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ebebek-playwright-tests
+    environment:
+      - BASE_URL=https://www.e-bebek.com
+      - EBEBEK_EMAIL=test_user@example.com
+      - EBEBEK_PASSWORD=ValidPass123!
+      - HEADLESS=true
+    volumes:
+      - ./reports:/app/reports
+      - ./allure-results:/app/allure-results
+      - ./screenshots:/app/screenshots

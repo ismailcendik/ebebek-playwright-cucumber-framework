@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Secrets & Credentials
+.env
+.env.local
+
+# Test Artifacts, Traces, Videos, Screenshots & Reports
+allure-results/
+reports/*
+
+# OS & IDE Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

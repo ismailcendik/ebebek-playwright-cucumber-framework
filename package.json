@@ -1,0 +1,41 @@
+{
+  "name": "ebebek-web-test-automation",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "cucumber.js",
+"scripts": {
+  "pretest": "npm run report:clean",
+  "pretest:parallel": "npm run report:clean",
+
+  "test": "npx cucumber-js",
+  "test:parallel": "npx cucumber-js --parallel 2",
+  "test:smoke": "npx cucumber-js --tags \"@smoke\"",
+  "test:regression": "npx cucumber-js --tags \"@regression\"",
+  "test:negative": "npx cucumber-js --tags \"@negative\"",
+
+  "report:clean": "rimraf allure-results allure-report",
+  "report:generate": "allure generate allure-results --clean -o allure-report",
+  "report:open": "allure open allure-report"
+},
+  "keywords": [
+    "playwright",
+    "cucumber",
+    "allure-reporter",
+    "es-modules",
+    "page-object-pattern",
+    "testing",
+    "automation"
+  ],
+  "author": "ismailcendik",
+  "license": "MIT",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.8.0",
+    "@playwright/test": "^1.45.0",
+    "allure-commandline": "^2.29.0",
+    "allure-cucumberjs": "^3.0.0",
+    "allure-js-commons": "^3.0.0",
+    "dotenv": "^16.4.5",
+    "rimraf": "^5.0.7"
+  }
+}
