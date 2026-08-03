@@ -70,7 +70,7 @@ HEADLESS=true                          # false → tarayıcı görünür açıl�
 RETRIES=0                              # Başarısız test yeniden deneme sayısı
 ```
 
-> **Not:** Testler gerçek kullanıcı kimlik bilgileriyle çalışır; `.env` dosyası `.gitignore`'a eklenmiştir ve repoya eklenmez.
+> **Not:** Kimlik doğrulama gerektiren senaryolar (Login, Oturum Devamlılığı vb.) geçerli kullanıcı bilgileriyle çalışmaktadır. Güvenlik standartları gereği bu bilgileri içeren `.env` dosyası `.gitignore` kapsamındadır ve repoya dahil edilmemiştir.
 
 ---
 
