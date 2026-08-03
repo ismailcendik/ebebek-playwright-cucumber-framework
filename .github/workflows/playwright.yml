@@ -1,0 +1,38 @@
+name: Playwright Cucumber Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+
+    - name: Create .env file from Secret
+      run: echo "${{ secrets.ENV_FILE }}" > .env
+
+    - name: Run Cucumber Parallel Tests
+      run: npm run test:parallel
+
+    - name: Upload Allure Results
+      uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: allure-results
+        path: allure-results/
+        retention-days: 30
